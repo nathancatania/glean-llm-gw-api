@@ -1,0 +1,43 @@
+info:
+  name: Generate Response - Array Input
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{BASE_URL}}/openai/v1/responses"
+  headers:
+    - name: content-type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "model": "gpt-6-luna",
+        "reasoning": {
+          "effort": "low"
+        },
+        "input": [
+          {
+            "type": "message",
+            "role": "developer",
+            "content": "Respond in heavy Australian slang."
+          },
+          {
+            "type": "message",
+            "role": "user",
+            "content": "What should we have for dinner tonight?"
+          }
+        ]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  Can be a bit flaky in the past due to the OpenAI schema itself:
+  https://askscio.slack.com/archives/C0B5NE9V5ML/p1781251661308859?thread_ts=1781234102.625689&cid=C0B5NE9V5ML

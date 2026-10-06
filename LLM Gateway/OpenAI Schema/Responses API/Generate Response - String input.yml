@@ -1,0 +1,29 @@
+info:
+  name: Generate Response - String input
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{BASE_URL}}/openai/v1/responses"
+  headers:
+    - name: content-type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "model": "GPT6_LUNA",
+        "reasoning": {
+          "effort": "low"
+        },
+        "instructions": "Respond in heavy Australian slang.",
+        "input": "What should I have for dinner tonight?"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

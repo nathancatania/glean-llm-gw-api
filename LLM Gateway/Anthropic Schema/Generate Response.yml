@@ -1,0 +1,34 @@
+info:
+  name: Generate Response
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{BASE_URL}}/anthropic/v1/messages"
+  body:
+    type: json
+    data: |-
+      {
+        "model": "CLAUDE_4_5_HAIKU_20251001",
+        "max_tokens": 1024,
+        "system": [
+          {
+            "text": "Respond in heavy Australian slang.",
+            "type": "text"
+          }
+        ],
+        "messages": [
+          {
+            "role": "user",
+            "content": "What should I have for dinner tonight?"
+          }
+        ]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

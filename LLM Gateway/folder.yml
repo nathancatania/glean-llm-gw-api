@@ -1,0 +1,7 @@
+info:
+  name: LLM Gateway
+  type: folder
+  seq: 1
+
+request:
+  auth: inherit

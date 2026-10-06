@@ -1,0 +1,8 @@
+name: Default
+variables:
+  - name: INSTANCE_ID
+    value: "tenant-id"
+  - name: BASE_URL
+    value: https://{{INSTANCE_ID}}-be.glean.com/rest/api/v1
+  - secret: true
+    name: GLEAN_API_KEY
